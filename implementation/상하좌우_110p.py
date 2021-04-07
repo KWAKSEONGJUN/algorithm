@@ -2,21 +2,19 @@ n = int(input())
 move = input().split()
 
 x, y = 1, 1
+dx = [0, 0, -1, 1]
+dy = [1, -1, 0, 0]
+move_types = ['R', 'L', 'U', 'D']
+
 for m in move:
-    if m == 'R':
-        if y != n:
-            y += 1
-    elif m == 'L':
-        if y != 1:
-            y -= 1
-    elif m == 'U':
-        if x != 1:
-            x -= 1
-    elif m == 'D':
-        if x != n:
-            x += 1
+    i = move_types.index(m)
+    nx = x + dx[i]
+    ny = y + dy[i]
+
+    if nx < 1 or nx > n or ny < 1 or ny > n:
+        continue
     else:
-        print('error')
+        x, y = nx, ny
 
 print(x, y)
 
