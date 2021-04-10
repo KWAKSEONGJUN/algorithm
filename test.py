@@ -1,38 +1,5 @@
-from itertools import combinations
+from collections import deque
 
-n, m = map(int, input().split())
+importances = deque(map(int, input().split()))
 
-city = []
-for i in range(n):
-    city.append(list(map(int, input().split())))
-
-houses_pos = []
-chickens_pos = []
-for i in range(n):
-    for j in range(n):
-        if city[i][j] == 1:
-            houses_pos.append([i+1, j+1])
-
-        if city[i][j] == 2:
-            chickens_pos.append([i+1, j+1])
-
-chickens_combin_list = list(combinations(chickens_pos, m))
-
-res = 101
-for chickens_list in chickens_combin_list:
-    mn_sum = 0
-    for h in houses_pos:
-        mn = 101
-        for c in chickens_list:
-            distance = sum([abs(h[i] - c[i]) for i in range(2)])
-            mn = min(mn, distance)
-        mn_sum += mn
-    res = min(mn_sum, res)
-
-print(res)
-
-
-
-
-
-
+print(importances)
