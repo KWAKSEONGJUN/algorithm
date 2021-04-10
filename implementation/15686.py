@@ -18,11 +18,11 @@ for i in range(n):
 
 chickens_combin_list = list(combinations(chickens_pos, m))
 
-res = 101
+res = 10000
 for chickens_list in chickens_combin_list:
     mn_sum = 0
     for h in houses_pos:
-        mn = 101
+        mn = 10000
         for c in chickens_list:
             distance = sum([abs(h[i] - c[i]) for i in range(2)])
             mn = min(mn, distance)
