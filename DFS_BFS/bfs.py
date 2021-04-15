@@ -14,17 +14,14 @@ def bfs(graph, start, visited):
                 visited[i] = True
 
 graph = [
-    [],
-    [2, 3, 8],
-    [1, 7],
-    [1, 4, 5],
-    [3, 5],
-    [3, 4],
-    [7],
-    [2, 6, 8],
-    [1, 7]
+	[1, 2],
+    	[0, 3, 4],
+    	[0, 5, 6],
+    	[1],
+    	[1],
+    	[2],
+    	[2]
 ]
 
-#각 노드가 방문된 정ㅇ보를 리스트 자료형으로 표현(1차원 리스트)
-visited = [False] * 9
-bfs(graph, 1, visited)
+visited = [False] * 7
+bfs(graph, 0, visited)
