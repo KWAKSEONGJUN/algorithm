@@ -16,8 +16,6 @@ def dfs(map_, i, j, visited):
 
     return cnt
 
-    
-
 
 n = int(input())
 
