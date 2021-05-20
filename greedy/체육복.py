@@ -1,14 +1,15 @@
 def solution(n, lost, reserve):
-    _reserve = [r for r in reserve if r not in lost]
-    _lost = [l for l in lost if l not in reserve]
-
-    for r in _reserve:
-        if r - 1 in _lost:
-            _lost.remove(r-1)
-        elif r + 1 in _lost:
-            _lost.remove(r+1)
-
-    answer = n - len(_lost)
-    return answer
+    reserve2 = [i for i in reserve if i not in lost]
+    lost2 = [i for i in lost if i not in reserve]
     
-print(solution(7, [2, 4, 5, 6, 7], [1, 3, 4, 5, 6, 7]))
+    for r in reserve2:
+        front, back = r - 1, r + 1
+        if front in lost2:
+            lost2.remove(front)
+        elif back in lost2:
+            lost2.remove(back)
+            
+    return n - len(lost2)
+    
+    
+print(solution(3, [3], [1]))
