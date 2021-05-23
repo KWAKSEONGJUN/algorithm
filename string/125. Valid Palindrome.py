@@ -2,14 +2,14 @@ import re
 
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        str = re.findall(r'[A-z]', s)
-        str = ''.join(str)
-        
-        if s == str[::-1]:
+        str = re.sub(r'[^a-zA-Z0-9]', '', s)
+        str = ''.join(str).lower()
+        print(str)
+        if str == str[::-1]:
             return True
 
         return False
 
 
 solution = Solution()
-print(solution.isPalindrome("A man, a plan, a canal: Panama"))
+print(solution.isPalindrome("ab_a"))
