@@ -26,7 +26,11 @@ def permutation2(items, r):
         for data in items:
             permutate(p+[data])
             
-            
+    permutate([])
+    
+    return result    
+
 items = [1, 2, 3, 4, 5]
-permutation(items, 2, 0)
+# permutation(items, 2, 0)
+permutation2(items, 2)
 

@@ -4,20 +4,21 @@ class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         res = []
         for i in range(len(nums)):
-            print(i)
             left, right, product = 0, len(nums)-1, 1
             
             while left < right:
                 if left == i:
                     left += 1
                     continue
-                if right == i:
+                elif right == i:
                     right -= 1
                     continue
+                else:
+                    product *= nums[left] * nums[right]
+                    left += 1
+                    right -= 1
                 
-                product *= nums[left] * nums[right]
-                
-            if left == right:
+            if left == right and left != i:
                 product *= nums[left]
                 
             res.append(product)
@@ -27,4 +28,4 @@ class Solution:
         
         
 solution = Solution()
-solution.productExceptSelf([1, 2, 3, 4])
+solution.productExceptSelf([-1,1,0,-3,3])
